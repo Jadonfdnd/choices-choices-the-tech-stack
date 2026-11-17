@@ -1,0 +1,73 @@
+<h1>Choices, Choices - The Tech-stack</h1>
+<h2>Justify Your Techstack</h2>
+<p>Over het onderbouwd kiezen van een tech-stack.</p>
+<h2>Doel van deze opdracht</h2>
+<p>Je leert hoe je systematisch onderzoek doet naar een passende tech-stack voor een opdracht én hoe je deze keuze kunt onderbouwen en presenteren.</p>
+<h2>Aanpak</h2>
+<p>Afgelopen sprints heb je websites gebouwd met tooling: Directus, Sveltekit en Netlify. Zo’n serie tools die met elkaar werken noemen we vaak een <em>tech-stack</em>. In deze leertaak onderzoek je wat de voor- en nadelen van verschillende tech-stacks zijn. Naast een paar door ons gekozen tech-stacks - 11ty en React/Next - staat het je vrij om zelf nóg een keuze te maken, voor de hand liggende keuzes voor frameworks zijn: Vue, React, Astro, Angular of Nuxt maar iets totaal anders mag ook. Uitgesloten zijn de tech-stack waar je al mee gewerkt hebt en de tech-stack die wij zelf presenteren. Elk framework heeft specifieke backend systemen waar het goed mee samenwerkt, denk aan: Directus, Prismic, Supabase, Hygraph, Firebase etcetera. Daarnaast kan je ook specifieke tools voor specifieke doeleinden gebruiken, bijvoorbeeld: three.js of Babylon.js voor 3d animatie, d3.js voor datavisualisaties. Kortom, keuze te over. Een overzicht van alle mogelijke keuzes vind je op <a href="https://jamstack.org/">https://jamstack.org/</a> onder de kopjes Headless CMS en Site Generator.</p>
+<p>Bij het onderzoeken van een mogelijke tech-stack is het belangrijk de belanghebbenden - in het engels <em>stakeholders</em> - goed in acht te nemen. Bij het werken met de tech-stack komen immers meerdere partijen samen. Jouw organisatie die als ontwikkelaar van een systeem ingehuurd wordt, de gebruiker die uiteindelijk met het systeem moet gaan werken én (medewerkers van) de opdrachtgever die het systeem gaat beheren.</p>
+<p>Jouw keuze voor een tech-stack heeft enorme impact op alledrie deze partijen en een verkeerde keuze kan een onbruikbaar systeem opleveren, iets wat we natuurlijk ten allen tijden willen voorkomen. Daarom is het verstandig bij het onderzoeken van een mogelijke tech-stack verschillende invalshoeken te gebruiken.</p>
+<p>In jouw onderzoek ga je van de drie eerdergenoemde invalshoeken uit bij het onderzoeken van de gebruikservaring:</p>
+<ul>
+<li><a href="#1-user-experience">User eXperience (UX)</a></li>
+<li><a href="#2-developer-experience">Developer eXperience (DX)</a></li>
+<li><a href="#3-content-management-experience">Content management eXperience (CX)</a></li>
+</ul>
+<p>Begin met het op een rij zetten van drie verschillende tech-stacks:</p>
+<ol>
+<li>11ty</li>
+<li>React/Next</li>
+<li>Jouw eigen keuze</li>
+</ol>
+<p>Voel je vrij om zelf iets te kiezen waar je nog geen ervaring mee hebt, we gaan immers onderzoeken!</p>
+<p>N.B.: Wellicht helpt het je om een paar van de <a href="#bronnen">bronnen</a> door te lezen om grip te krijgen op waar we het over hebben. Dat gaat je helpen bij het uitvoeren van onderstaande opdrachten.</p>
+<h4>1. User eXperience</h4>
+<p>Voor de UX is het belangrijk te weten wie de gebruikers zijn van de website, wat voor apparaten zij gebruiken en of ze bv snel internet hebben of juist niet. Als je het antwoord op bovenstaande vragen hebt onderzoek je wat voor type pagina jouw tech-stack genereert. Is het heel zwaar op 3d animatie? Vraagt de frontend veel javascript rekenkracht? Is er veel netwerkverkeer bij het gebruik van jouw toepassing? Kan het omgaan met het wegvallen van het internet of is er een continue verbinding nodig?</p>
+<p>Denk aan de door jou in het verleden bij FDND opgedane kennis omtrent UX bij het uitvoeren van dit onderzoek.</p>
+<h5>Aanpak</h5>
+<ol>
+<li>Beschrijf de verschillende type personen in de doelgroep en bepaal wat de randvoorwaarden zijn die door bijvoorbeeld hun devices of tech-geletterdheid gesteld worden.</li>
+<li>Onderzoek de tech-stack op user experience. Bijvoorbeeld door het doen van een snelle WCAG audit met lighthouse of Axe of een device test met een van de devices uit het device lab (de plastic koffers). Houdt je eerdere ervaring bij FDND met betrekking tot UX in het achterhoofd.</li>
+<li>Documenteer je bevindingen in een Gist!</li>
+</ol>
+<h4>2. Developer eXperience</h4>
+<p>De ontwikkelervaring of <em>developer experience</em> wordt bepaald aan de hand van een aantal criteria.</p>
+<p>De basis van de ontwikkelervaring ligt in de <strong>functie</strong> van een ontwikkeltool. Een mooie interface of een marketingverhaal doen niet zo veel als de functionaliteit slecht is. Als het niet werkt, is er geen DX.</p>
+<p>Naast dat de tool moet werken, is het belangrijk dat de tool goede performance heeft en <strong>betrouwbaar</strong> is. Elk softwareproduct heeft bugs, maar hoe daar mee om gegaan wordt is belangrijk. Is er een groot ontwikkelteam en zijn er regelmatig updates en releases dan verhoogt dat de ontwikkelervaring.</p>
+<p><strong>Gemak</strong> gaat bij DX niet alleen over het gebruiken van de tool zelf maar ook over documentatie, communities, knowledge bases, shortcuts, snippets, filters, etcetera. Al deze dingen dragen bij aan ontwikkelervaring.</p>
+<p>Tenslotte is een <strong>heldere interface</strong> (bijv. API) waar je tegen aan programmeert van onschatbare waarde. Als je niet weet wat je kunt verwachten werk je niet lekker. Helderheid vergroot de ontwikkelervaring.</p>
+<h5>Aanpak</h5>
+<ol>
+<li>Onderzoek de tech-stack op developer experience. Het beste is een klein project met de tech-stack proberen te realiseren, bijvoorbeeld een oude leertaak.</li>
+<li>Documenteer je bevindingen in een Gist! Bijvoorbeeld door genoemde punten te beschrijven: functies, betrouwbaarheid, gemak en helderheid.</li>
+</ol>
+<h4>3. Content Management eXperience</h4>
+<p>Het CMS gaat gebruikt worden door de opdrachtgevers of andere content beheerders. Of de beheerders jouw CMS kunnen gebruiken hangt af van het gebruiksgemak en de benodigde technische capaciteit. Als je een ingewikkeld GraphQL systeem gebruikt met onderlinge afhankelijkheden moet een CM-team best tech-savvy zijn, bij een tool als Prismic valt dat heel erg mee (zeker als je user-levels gebruikt!).</p>
+<p>Wat voor eisen stelt jouw tech-stack aan de beheerder van het systeem? Hebben ze genoeg aan domein-kennis van hun eigen bedrijf of moeten ze een deel van jouw skills als frontend designer/developer omarmen voor ze iets kunnen toevoegen of aanpassen?</p>
+<h5>Aanpak</h5>
+<ol>
+<li>Onderzoek de tech-stack op content management experience. Een andere opleiding bij de Faculteit, Smart Media Production, gaat over content-beheer. Misschien kan je een van hun studenten interviewen over wat ze prettig vinden. Je kunt zelfs vragen of ze in een door jouw opgezet systeem content toe te voegen en of ze dat prettig vinden..</li>
+<li>Documenteer je bevindingen in een Gist!</li>
+</ol>
+<h4>4. Presentatie (tijdens de retrospect)</h4>
+<p>Het hele onderzoek is te substantieel om te presenteren. Voeg daarom de conclusie en een paar <em>key-insights</em> uit elk van bovenstaande stappen samen een presentatie. Maak een korte presentatie in bijvoorbeeld powerpoint, waarin je in maximaal 5 slides (zonder introsheet en agenda) jouw bevindingen presenteert. Zorg er voor dat jouw presentatie te begrijpen is voor iemand die weet wat het frontend vakgebied inhoudt. Je presenteert dus niet aan leken.</p>
+<h5>Aanpak</h5>
+<ol>
+<li>Maak een mooie introsheet</li>
+<li>Laat een slide over voor de agenda</li>
+<li>Vertaal de conclusie en belangrijkste inzichten met betrekking tot de gebruikservaring (UX) naar één slide, gebruik zo weinig mogelijk tekst maar probeer dingen visueel te maken.</li>
+<li>Vertaal de conclusie en belangrijkste inzichten met betrekking tot de ontwikkelervaring (DX) naar één slide, gebruik zo weinig mogelijk tekst maar probeer dingen visueel te maken.</li>
+<li>Vertaal de conclusie en belangrijkste inzichten met betrekking tot de content management ervaring (CMX) naar één slide, gebruik zo weinig mogelijk tekst maar probeer dingen visueel te maken.</li>
+<li>Vul de agenda aan met de titels van je dia’s…</li>
+<li>Presenteer in de squad!</li>
+</ol>
+<h3>Bronnen</h3>
+<p>Hier wat bronnen die je kunnen helpen bij het structureren van je onderzoek:</p>
+<ul>
+<li>https://medium.com/swlh/what-is-dx-developer-experience-401a0e44a9d9</li>
+<li>https://www.softermii.com/blog/10-tips-in-choosing-the-best-tech-stack-for-your-web-application</li>
+<li>https://symfony.com/ten-criteria</li>
+<li>https://www.velvetech.com/blog/choosing-project-tech-stack-basic-principles/</li>
+<li>https://tray.io/blog/align-revenue-ops-tech-stack</li>
+<li>https://www.zachleat.com/web/site-generator-review/</li>
+</ul>
