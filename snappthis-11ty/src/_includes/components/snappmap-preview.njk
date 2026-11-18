@@ -1,0 +1,43 @@
+{#
+	Een snappmap op de homepage: titel, eventueel "Add your snapp!" en maximaal 5 thumbnails.
+	Vervangt SnappmapPreview.svelte en SnappThumbnail.svelte.
+#}
+{% macro snappThumbnail(snapp, label = '', size = 200, eager = false) %}
+	{% set imageUrl = 'https://fdnd-agency.directus.app/assets/' + snapp.picture + '?width=' + size + '&height=' + size + '&fit=cover' %}
+	<a href="/snapps/{{ snapp.uuid }}" class="snapp-thumbnail" aria-label="{{ label }}">
+		<picture>
+			<source srcset="{{ imageUrl }}&format=avif" type="image/avif" />
+			<source srcset="{{ imageUrl }}&format=webp" type="image/webp" />
+			<img
+				src="{{ imageUrl }}"
+				alt=""
+				width="{{ size }}"
+				height="{{ size }}"
+				loading="{{ 'eager' if eager else 'lazy' }}"
+				fetchpriority="{{ 'high' if eager else 'auto' }}"
+			/>
+		</picture>
+	</a>
+{% endmacro %}
+
+{% macro snappmapPreview(snappmap, eager = false) %}
+<section class="snappmap">
+	<h2><a href="/snappmaps/{{ snappmap.slug }}">{{ snappmap.name }}</a></h2>
+
+	{% if snappmap.showAddSnapp %}
+		<p class="active"><strong>Add your snapp!</strong></p>
+	{% endif %}
+
+	{% if snappmap.thumbnails.length > 0 %}
+		<ul class="image-thumbnails">
+			{% for snapp in snappmap.thumbnails %}
+				<li>
+					{{ snappThumbnail(snapp, label = 'Snapp ' + loop.index + ' of ' + snappmap.thumbnails.length + ' in ' + snappmap.name, eager = eager) }}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p class="empty">No snapps yet.</p>
+	{% endif %}
+</section>
+{% endmacro %}

@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: SnappThis
+---
+{# De macro's (componenten) importeren, vergelijkbaar met import Header from '...' in Svelte #}
+{% from "components/header.njk" import header %}
+{% from "components/footer.njk" import footer %}
+{% from "components/snappmap-preview.njk" import snappmapPreview %}
+
+{{ header(title = 'Welcome back', showAddButton = true) }}
+
+<main class="home">
+	{# snappmaps komt automatisch uit src/_data/snappmaps.js #}
+	{% for snappmap in snappmaps %}
+		{# De eerste 2 snappmaps zijn direct zichtbaar, dus die afbeeldingen laden meteen #}
+		{{ snappmapPreview(snappmap, eager = loop.index0 < 2) }}
+	{% else %}
+		<p class="empty">There are no snappmaps yet.</p>
+	{% endfor %}
+</main>
+
+{{ footer(page.url) }}

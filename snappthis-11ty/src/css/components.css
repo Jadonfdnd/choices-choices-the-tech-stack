@@ -1,0 +1,225 @@
+/*
+	In Svelte stond de CSS in een <style> blok per component en was die automatisch "scoped".
+	11ty doet dat niet. Daarom staat alles hier, en begint elke regel met de class van het component
+	(.top-nav, .footer, .snappmap) zodat de styles niet over de hele site gaan lekken.
+*/
+
+/* =========================
+   Header
+   ========================= */
+
+.top-nav {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	padding-inline: var(--spacing-header-inline);
+	height: var(--bar-height);
+	background-color: var(--primary-color);
+	color: var(--lightest-color);
+	position: sticky;
+	top: 0;
+	z-index: 1;
+
+	.title {
+		grid-column: 2;
+		font-size: var(--font-size-m);
+		width: max-content;
+		justify-self: center;
+	}
+
+	.go-back-link {
+		display: inline-block;
+		transition: 0.1s;
+		width: fit-content;
+
+		@media (any-pointer: fine) {
+			&:hover {
+				scale: 1.15;
+			}
+		}
+
+		svg {
+			height: calc(var(--bar-height) * 0.4);
+			width: auto;
+			fill: var(--lightest-color);
+		}
+	}
+
+	.add-button {
+		grid-column: 3;
+		justify-self: end;
+
+		&:focus-visible {
+			outline: 3px solid var(--lightest-color);
+			outline-offset: 4px;
+		}
+	}
+
+	.right-center-icon {
+		display: block;
+		width: calc(var(--bar-height) * 0.4);
+		height: auto;
+		aspect-ratio: 1 / 1;
+		fill: var(--lightest-color);
+	}
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+.footer-nav {
+	height: var(--bar-height);
+	background-color: var(--primary-color);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.footer-nav-list {
+	display: flex;
+	justify-content: space-around;
+	height: 100%;
+	list-style: none;
+}
+
+.footer-nav-link {
+	display: flex;
+	align-items: center;
+	height: 100%;
+
+	@media (any-pointer: fine) {
+		&:hover {
+			transition: var(--transition-duration);
+			scale: var(--hover-scale);
+		}
+	}
+}
+
+.footer-nav-icon {
+	height: auto;
+	width: calc(var(--bar-height) * 0.4);
+	fill: var(--lightest-color);
+}
+
+.footer-nav-link.active .footer-nav-icon {
+	fill: var(--accent-color-on-dark-bg);
+}
+
+.footer-nav-item:first-child .footer-nav-icon {
+	width: calc(var(--bar-height) * 0.44);
+}
+
+/* =========================
+   Homepage
+   ========================= */
+
+.home {
+	/* Ruimte voor de vaste footer, zodat de laatste snappmap er niet achter verdwijnt */
+	padding-block-end: var(--bar-height);
+
+	> .empty {
+		padding: var(--spacing-s);
+		color: var(--text-color-on-light-bg);
+		font-size: var(--font-size-xs);
+	}
+}
+
+/* =========================
+   Snappmap preview
+   ========================= */
+
+.snappmap {
+	display: grid;
+	grid-template-columns: 1fr max-content;
+	align-items: center;
+
+	@media (prefers-reduced-motion: no-preference) {
+		animation: snappmap-fade-in 0.5s backwards;
+		animation-delay: calc(100ms * sibling-index());
+	}
+
+	h2 {
+		display: flex;
+		align-items: center;
+		height: var(--bar-height);
+		padding-inline: var(--spacing-s);
+		font-size: var(--font-size-m);
+		font-weight: 400;
+
+		a {
+			display: inline-block;
+			color: var(--dark-text-color-on-light-bg);
+			text-decoration: none;
+			transition: scale var(--transition-duration);
+
+			@media (any-pointer: fine) {
+				&:hover {
+					scale: var(--hover-scale);
+				}
+			}
+
+			&:focus-visible {
+				outline: 2px solid var(--accent-color-on-light-bg);
+				outline-offset: 4px;
+			}
+		}
+	}
+
+	.active {
+		padding-inline: var(--spacing-s);
+		color: var(--accent-color-on-light-bg);
+		font-size: var(--font-size-xs);
+	}
+
+	.empty {
+		grid-column: 1 / -1;
+		padding-inline: var(--spacing-s);
+		padding-block-end: var(--spacing-s);
+		color: var(--text-color-on-light-bg);
+		font-size: var(--font-size-xs);
+	}
+
+	.image-thumbnails {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: var(--grid-gap);
+		list-style: none;
+	}
+}
+
+@keyframes snappmap-fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+/* =========================
+   Snapp thumbnail
+   ========================= */
+
+.snapp-thumbnail {
+	display: block;
+	transition: translate var(--transition-duration);
+
+	@media (any-pointer: fine) {
+		&:hover {
+			translate: 0 -0.2rem;
+		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--accent-color-on-light-bg);
+		outline-offset: -2px;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+	}
+}
